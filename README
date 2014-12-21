@@ -1,3 +1,4 @@
 a simple collection of lsystems in go
 the plant is not yet correct.
 used interfaces to cut down on dry, but there's still some boilerplate I can yet remove
+Also a bit of a foray into rules based programming

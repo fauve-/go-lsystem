@@ -17,15 +17,15 @@ func NewOtherSiriTriangle() *OtherSiriTriangle {
 	}
 }
 
-func (s *SiriTriangle) currentSymbolSet() []Symbol {
+func (s *OtherSiriTriangle) currentSymbolSet() []Symbol {
 	return s.cur
 }
 
-func (st *SiriTriangle) setCurrentSymbolSet(s []Symbol) {
+func (st *OtherSiriTriangle) setCurrentSymbolSet(s []Symbol) {
 	st.cur = s
 }
 
-func (st *SiriTriangle) applyDrawRule(s Symbol, surf *sdl.Surface) {
+func (st *OtherSiriTriangle) applyDrawRule(s Symbol, surf *sdl.Surface) {
 	//	log.Printf("in draw loop %+v\n", d.pen.Location)
 	switch s {
 	case A, B:
@@ -44,7 +44,7 @@ func (st *SiriTriangle) applyDrawRule(s Symbol, surf *sdl.Surface) {
 	}
 }
 
-func (st *SiriTriangle) applyRule(s Symbol) []Symbol {
+func (st *OtherSiriTriangle) applyRule(s Symbol) []Symbol {
 	switch s {
 	case A:
 		return []Symbol{B, Minus, A, Minus, B}
@@ -59,7 +59,7 @@ func (st *SiriTriangle) applyRule(s Symbol) []Symbol {
 	}
 }
 
-func (st *SiriTriangle) String() string {
+func (st *OtherSiriTriangle) String() string {
 	var s string
 	bod := st.currentSymbolSet()
 	lbod := len(bod)

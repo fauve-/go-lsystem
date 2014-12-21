@@ -93,7 +93,7 @@ func Draw(l LSystem) error {
 func main() {
 	//	dragon := NewDragonCurve()
 	//	siri := NewSiriTriangle()
-	plant := OtherSirTriangle()
+	plant := NewOtherSiriTriangle()
 	//	Mutate(dragon, iters)
 	//	Mutate(siri, iters)
 	Mutate(plant, iters)

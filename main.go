@@ -7,11 +7,13 @@ import (
 )
 
 var (
-	iters int
+	iters        int
+	chosenSystem string
 )
 
 func init() {
 	flag.IntVar(&iters, "iters", 5, "iteratoins")
+	flag.StringVar(&chosenSystem, "lsys", "siri", "which lsystem do ya want? [tri,tri2,dragon]")
 	flag.Parse()
 }
 
@@ -91,17 +93,21 @@ func Draw(l LSystem) error {
 }
 
 func main() {
-	//	dragon := NewDragonCurve()
-	//	siri := NewSiriTriangle()
-	plant := NewOtherSiriTriangle()
-	//	Mutate(dragon, iters)
-	//	Mutate(siri, iters)
-	Mutate(plant, iters)
-	//	err := Draw(dragon)
-	//	err := Draw(siri)
-	err := Draw(plant)
+	var sys LSystem
+	switch chosenSystem {
+	case "dragon":
+		sys = NewDragonCurve()
+	case "tri":
+		sys = NewSiriTriangle()
+	case "plant":
+		sys = NewPlant()
+	case "tri2":
+		sys = NewOtherSiriTriangle()
+	}
+	Mutate(sys, iters)
+	err := Draw(sys)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	log.Println(plant)
+	log.Println(sys)
 }

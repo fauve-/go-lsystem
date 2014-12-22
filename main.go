@@ -13,7 +13,7 @@ var (
 
 func init() {
 	flag.IntVar(&iters, "iters", 5, "iteratoins")
-	flag.StringVar(&chosenSystem, "lsys", "siri", "which lsystem do ya want? [tri,tri2,dragon]")
+	flag.StringVar(&chosenSystem, "lsys", "siri", "which lsystem do ya want? [tri,tri2,dragon,plant]")
 	flag.Parse()
 }
 

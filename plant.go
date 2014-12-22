@@ -44,10 +44,13 @@ func (p *Plant) applyDrawRule(s Symbol, surf *sdl.Surface) {
 	case Plus:
 		p.pen.Turn(turt.RIGHT, 25)
 	case RBracket:
-		popped := p.stack.Front().Value.(turt.Turtle)
-		p.pen = &popped
+		popped := p.stack.Front()
+		t := popped.Value.(turt.Turtle)
+		p.pen = &t
+		p.stack.Remove(popped)
 	case LBracket:
-		p.stack.PushFront(*p.pen)
+		pencopy := *p.pen
+		p.stack.PushFront(pencopy)
 	}
 }
 
